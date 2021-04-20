@@ -1,13 +1,15 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
+import Context from '../context'
 
-function AddTodo({onCreate}) {
+function AddTodo() {
+  const {addTodo} = useContext(Context)
     const [value, setValue] = useState('')
 
     function submitHandler(e){
         e.preventDefault()
 
         if(value.trim()){
-            onCreate(value)
+            addTodo(value)
             setValue('')
         }
     }

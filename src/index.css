@@ -16,3 +16,6 @@ code {
   width: 550px;
   padding: 15px;
 }
+.done{
+  text-decoration: line-through;
+}
