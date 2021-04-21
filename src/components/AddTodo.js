@@ -1,26 +1,31 @@
-import React, {useState, useContext} from "react";
+import React, { useState, useContext } from 'react'
 import Context from '../context'
 
 function AddTodo() {
-  const {addTodo} = useContext(Context)
-    const [value, setValue] = useState('')
+  const { addTodo } = useContext(Context)
+  const [value, setValue] = useState('')
 
-    function submitHandler(e){
-        e.preventDefault()
+  function submitHandler(e) {
+    e.preventDefault()
 
-        if(value.trim()){
-            addTodo(value)
-            setValue('')
-        }
+    if (value.trim()) {
+      addTodo(value)
+      setValue('')
     }
+  }
 
   return (
-    <form className='d-flex' onSubmit={submitHandler}>
-      <input value={value} onChange={e => setValue(e.target.value)} className="form-control m-1" type="text" />
-      <button type="submit" className="btn btn-sm btn-success m-1">
-        Add Todo
-      </button>
+    <form className="add-group" onSubmit={submitHandler}>
+      <input
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="task-input"
+        type="text"
+        autocomplete="off"
+        placeholder="Add New Task"
+      />
+      <button type="submit" className="btn-success" title="Add Task"/>
     </form>
-  );
+  )
 }
-export default AddTodo;
+export default AddTodo

@@ -9,18 +9,16 @@ function TodoItem({ todo }) {
     classes.push("done");
   }
   return (
-    <li className="list-group-item d-flex justify-content-between align-items-center">
-      <span className={classes.join(" ")}>
+    <li className="list-group-item">
+      <label className={classes.join(" ")}>
         <input type="checkbox" onChange={() => togleTodo(todo.id)} />
         &nbsp;
         {todo.title}
-      </span>
-      <button
-        className="btn btn-sm btn-danger"
+      </label>
+      <span
+        className="btn-danger"
         onClick={() => removeTodo(todo.id)}
-      >
-        &times;
-      </button>
+      />
     </li>
   );
 }
